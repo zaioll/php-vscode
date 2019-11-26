@@ -51,9 +51,12 @@ RUN \
 
 RUN mkdir $VSCODEEXT \
     && chown -R ${USUARIO}:${USUARIO} $VSCODEEXT \
-	&& su ${USUARIO} -c "code --extensions-dir $VSCODEEXT --install-extension felixfbecker.php-intellisense --install-extension felixfbecker.php-debug --install-extension whatwedo.twig --install-extension ikappas.phpcs"
+	&& su ${USUARIO} -c "code --extensions-dir $VSCODEEXT --install-extension felixfbecker.php-intellisense --install-extension felixfbecker.php-debug --install-extension whatwedo.twig --install-extension ikappas.phpcs --install-extension ecodes.vscode-phpmd --install-extension bmewburn.vscode-intelephense-client --install-extension MehediDracula.php-namespace-resolver --install-extension phproberto.vscode-php-getters-setters --install-extension naumovs.color-highlight --install-extension anseki.vscode-color --install-extension vscode-icons-team.vscode-icons --install-extension eamodio.gitlens --install-extension Zignd.html-css-class-completion --install-extension raynigon.nginx-formatter --install-extension mrmlnc.vscode-apache --install-extension mechatroner.rainbow-csv --install-extension jock.svg --install-extension tyriar.terminal-tabs --install-extension formulahendry.terminal --install-extension ms-vscode.vscode-typescript-tslint-plugin --install-extension mgmcdermott.vscode-language-babel --install-extension michelemelluso.code-beautifier --install-extension editorconfig.editorconfig --install-extension donjayamanne.githistory --install-extension ecmel.vscode-html-css --install-extension doublefint.pgsql --install-extension mehedidracula.php-constructor --install-extension neilbrayfield.php-docblocker --install-extension marabesi.php-import-checker --install-extension chrmarti.regex --install-extension imperez.smarty --install-extension vscodevim.vim --install-extension davidanson.vscode-markdownlint"
 
 COPY start.sh /usr/local/bin/start.sh
+COPY settings.json ${HOME}/.config/Code/User
+
+RUN chown -R ${USUARIO}:${USUARIO} $HOME
 
 WORKDIR /var/www/html
 

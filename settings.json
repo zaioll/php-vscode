@@ -1,0 +1,52 @@
+{
+    "php.suggest.basic": false,
+    "php.executablePath": "/usr/bin/php",
+    "php.validate.enable": false,
+    "zenMode.centerLayout": false,
+    "window.titleBarStyle": "custom",
+    "phpcs.composerJsonPath": "/home/developer/.composer/composer.json",
+    "phpcs.executablePath": "/home/developer/.composer/vendor/bin/phpcs",
+    "phpcs.standard": "PSR2",
+    "phpmd.validate.executablePath": "/home/develper/composer/vendor/bin/phpmd",
+    "phpunit.php": "/usr/bin/php",
+    "editor.minimap.enabled" : false,
+    "phpunit.phpunit": "/home/developer/.composer/vendor/bin/phpunit",
+    "vim.camelCaseMotion.enable": true,
+    "phpcs.ignorePatterns": [
+        "*/logs/*",
+        "*/vendor/*",
+        "*/cache/*",
+        "*/core/*",
+        "*/docker/*",
+        "*/.git/*",
+        "*/sql/*",
+        "*/assets/*",
+        "*/backend/web/*",
+        "*/backend/views/*",
+        "*/_backups/*"
+    ],
+    "editor.formatOnPaste": false,
+    "namespaceResolver.exclude": "**/node_modules/**, */cache/*, */logs/*, */backend/runtime/*",
+    "window.zoomLevel": 1,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+    "git.ignoreMissingGitWarning": true,
+    "python.jediEnabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.rendererType": "dom",
+    "vsicons.dontShowNewVersionMessage": true,
+    "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "DotJoshJohnson.xml"
+    },
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
+}
