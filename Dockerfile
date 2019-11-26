@@ -57,4 +57,4 @@ COPY start.sh /usr/local/bin/start.sh
 
 WORKDIR /var/www/html
 
-CMD [ "start.sh" ]
+CMD [ "/usr/local/bin/start.sh" ]
