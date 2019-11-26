@@ -60,7 +60,7 @@ RUN mkdir $VSCODEEXT \
 COPY start.sh /usr/local/bin/start.sh
 COPY settings.json ${HOME}/.config/Code/User
 
-#RUN chown -R ${USUARIO}:${USUARIO} $HOME
+RUN chown ${USUARIO}:${USUARIO} $HOME/.config/Code/User/settings.json
 
 WORKDIR /var/www/html
 
