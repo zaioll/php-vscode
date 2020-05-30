@@ -3,13 +3,15 @@
 
 To launch the "IDE" and set the current folder as the root of your application:
 
-$ docker run -ti --rm --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -v "$PWD":/var/www/html -e DISPLAY=unix$DISPLAY --device /dev/dri --name vscode --net="host" insready/vscode-php
+```
+$ docker run -ti --rm --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -v "$PWD":/var/www/html -e DISPLAY=unix$DISPLAY --device /dev/dri --name vscode --net="host" zaioll/vscode-php:latest
+```
 
 You can set up bash alias for the command above, for example:
 
 nano ~/.bashrc
 
-alias phpcode='docker run -ti --rm --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -v "$PWD":/var/www/html -e DISPLAY=unix$DISPLAY --device /dev/dri --name vscode --net="host" insready/vscode-php'
+alias phpcode='docker run -ti --rm --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -v "$PWD":/var/www/html -e DISPLAY=unix$DISPLAY --device /dev/dri --name vscode --net="host" zaioll/vscode-php:latest'
 
 source ~/.bashrc
 
