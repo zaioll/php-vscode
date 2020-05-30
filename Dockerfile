@@ -1,4 +1,4 @@
-FROM zahaila/php-zts:7.2
+FROM zaioll/php-zts:7.2
 
 LABEL maintener 'Láyro Cristofér <layrozahaila@gmail.com>'
 
