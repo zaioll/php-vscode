@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | apt-key add - \
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
-#    && wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - && echo "deb https://packages.sury.org/php/ stretch main" | tee /etc/apt/sources.list.d/php.list
 
 RUN apt-get update && apt-get -y install \
 	code \
@@ -40,7 +39,6 @@ RUN apt-get update && apt-get -y install \
 	libxrender1 \
 	libxss1 \
 	libxtst6 \
-    #php7.2-cli php7.2-common php7.2-curl php7.2-mbstring php7.2-mysql php7.2-xml \
 	--no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
