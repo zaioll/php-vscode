@@ -43,6 +43,9 @@ RUN apt-get update && apt-get -y install \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir $VSCODEEXT \
+    && useradd --create-home --home-dir $HOME ${USUARIO} -s /bin/bash \
+    && mkdir /var/www/html -p \
+	&& chown -R ${USUARIO}:${USUARIO} $HOME /var/www/html \
     && chown -R ${USUARIO}:${USUARIO} $VSCODEEXT \
 	&& su ${USUARIO} -c "code --extensions-dir $VSCODEEXT --install-extension formulahendry.auto-close-tag --install-extension ymotongpoo.licenser --install-extension yzhang.markdown-all-in-one --install-extension wakatime.vscode-wakatime --install-extension esbenp.prettier-vscode --install-extension piotrpalarz.vscode-gitignore-generator --install-extension formulahendry.auto-complete-tag --install-extension vsls-contrib.codetour --install-extension coenraads.bracket-pair-colorizer --install-extension ms-vscode-remote.vscode-remote-extensionpack --install-extension felixfbecker.php-intellisense --install-extension felixfbecker.php-debug --install-extension whatwedo.twig --install-extension ikappas.phpcs --install-extension ecodes.vscode-phpmd --install-extension bmewburn.vscode-intelephense-client --install-extension MehediDracula.php-namespace-resolver --install-extension phproberto.vscode-php-getters-setters --install-extension naumovs.color-highlight --install-extension anseki.vscode-color --install-extension vscode-icons-team.vscode-icons --install-extension eamodio.gitlens --install-extension Zignd.html-css-class-completion --install-extension raynigon.nginx-formatter --install-extension mrmlnc.vscode-apache --install-extension mechatroner.rainbow-csv --install-extension jock.svg --install-extension tyriar.terminal-tabs --install-extension formulahendry.terminal --install-extension ms-vscode.vscode-typescript-tslint-plugin --install-extension mgmcdermott.vscode-language-babel --install-extension michelemelluso.code-beautifier --install-extension editorconfig.editorconfig --install-extension donjayamanne.githistory --install-extension ecmel.vscode-html-css --install-extension doublefint.pgsql --install-extension mehedidracula.php-constructor --install-extension neilbrayfield.php-docblocker --install-extension marabesi.php-import-checker --install-extension chrmarti.regex --install-extension imperez.smarty --install-extension vscodevim.vim --install-extension davidanson.vscode-markdownlint --install-extension compulim.vscode-clock --install-extension mutantdino.resourcemonitor --install-extension dotjoshjohnson.xml --install-extension visualstudioexptteam.vscodeintellicode" \
     && su ${USUARIO} -c "composer global require phpunit/phpunit" \
@@ -55,5 +58,7 @@ COPY settings.json ${HOME}/.config/Code/User
 RUN chown ${USUARIO}:${USUARIO} $HOME/.config/Code/User/settings.json
 
 WORKDIR /var/www/html
+
+USER ${USUARIO}
 
 CMD [ "/usr/local/bin/start.sh" ]
