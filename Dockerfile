@@ -60,6 +60,6 @@ RUN chown ${USUARIO}:${USUARIO} $HOME/.config/Code/User/settings.json
 
 WORKDIR /var/www/html
 
-USER ${USUARIO}
+#USER ${USUARIO}
 
 CMD [ "/usr/local/bin/start.sh" ]
