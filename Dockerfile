@@ -60,6 +60,9 @@ RUN chown ${USUARIO}:${USUARIO} $HOME/.config/Code/User/settings.json
 
 WORKDIR /var/www/html
 
+RUN su ${USUARIO} -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash"
+RUN su ${USUARIO} -c "\. ${HOME}/.nvm/nvm.sh && nvm install --lts"
+
 #USER ${USUARIO}
 
 CMD [ "/usr/local/bin/start.sh" ]
